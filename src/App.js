@@ -4,7 +4,7 @@ import recipesdb from "./recipesdb";
 import { Card } from "@material-ui/core";
 
 const Home = () => {
-  return <div>Home</div>;
+  return <div>Your fave app for viewing 4 recipes!</div>;
 };
 const Recipes = props => {
   return <div>{props.children}</div>;
@@ -29,6 +29,17 @@ const Recipe = props => {
     //would be an async api call in a real app
     setRecipe(recipesdb.find(recipe => recipe.id === Number(props.recipeId)));
   }, []);
+
+  if (!recipe) {
+    return (
+      <div>
+        Sorry, no recipe matches the id {props.recipeId}!<br />
+        Have you searched for your recipe on our{" "}
+        <Link to="/recipes">recipes page</Link>?
+      </div>
+    );
+  }
+
   return <IndividualRecipeCard recipe={recipe} />;
 };
 
