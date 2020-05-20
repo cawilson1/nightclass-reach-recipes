@@ -34,7 +34,19 @@ const RecipeIndex = props => {
   );
 };
 const Recipe = props => {
-  return <div>Recipe {props.recipeId}</div>;
+  const [recipe, setRecipe] = useState({});
+  useEffect(() => {
+    //would be an async api call in a real app
+    setRecipe(recipesdb.find(recipe => recipe.id === Number(props.recipeId)));
+  }, []);
+  return (
+    <Card style={{ height: "70vh", margin: 20, padding: 10 }}>
+      <div>{recipe.food}</div>
+      <img src={recipe.image} alt={"recipe"} width={200} />
+      <div>{recipe.instructions}</div>
+      <div>{recipe.id}</div>
+    </Card>
+  );
 };
 const NotFound = () => {
   return <div>Sorry, there is no page at this location!</div>;
