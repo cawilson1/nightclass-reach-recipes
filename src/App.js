@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Router, Link } from "@reach/router";
+import { Router, Link, navigate } from "@reach/router";
 import recipesdb from "./recipesdb";
 import { Card } from "@material-ui/core";
 
@@ -9,7 +9,7 @@ const Home = () => {
 const Recipes = props => {
   return <div>{props.children}</div>;
 };
-const RecipeIndex = () => {
+const RecipeIndex = props => {
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
     //do a real request to an API/ server/db. Async fn usually
@@ -19,7 +19,10 @@ const RecipeIndex = () => {
     <div>
       {recipes.map(recipe => {
         return (
-          <Card style={{ margin: 20, padding: 10 }}>
+          <Card
+            onClick={() => props.navigate(`/recipes/${recipe.id}`)}
+            style={{ margin: 20, padding: 10 }}
+          >
             <div>{recipe.food}</div>
             <img src={recipe.image} alt={"recipe"} width={200} />
             <div>{recipe.instructions}</div>
