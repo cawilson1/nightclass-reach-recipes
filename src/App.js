@@ -20,7 +20,7 @@ const RecipeIndex = () => {
       {recipes.map(recipe => {
         return (
           <Card style={{ margin: 20, padding: 10 }}>
-            <div>{recipe.name}</div>
+            <div>{recipe.food}</div>
             <img src={recipe.image} alt={"recipe"} width={200} />
             <div>{recipe.instructions}</div>
             <div>{recipe.id}</div>
