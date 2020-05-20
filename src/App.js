@@ -64,7 +64,7 @@ const NotFound = () => {
 function App() {
   return (
     <div style={{ backgroundColor: "lightgrey", minHeight: "100vh" }}>
-      <nav>
+      <nav style={{ backgroundColor: "gold", height: "5vh" }}>
         <Link to="/">Home</Link> <Link to="/recipes">Recipes</Link>
       </nav>
 
