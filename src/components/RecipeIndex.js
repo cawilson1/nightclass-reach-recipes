@@ -11,7 +11,7 @@ const RecipeIndex = () => {
   return (
     <div>
       {recipes.map(recipe => {
-        return <RecipesListCard recipe={recipe} />;
+        return <RecipesListCard key={recipe.id} recipe={recipe} />;
       })}
     </div>
   );

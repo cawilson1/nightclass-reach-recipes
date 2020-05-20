@@ -2,16 +2,17 @@ import React from "react";
 import { Card } from "@material-ui/core";
 import { navigate } from "@reach/router";
 
-const RecipesListCard = props => {
+function something(recipe) {
+  return navigate(`/recipes/${recipe.id}`);
+}
+
+const RecipesListCard = ({ recipe }) => {
   return (
-    <Card
-      onClick={() => navigate(`/recipes/${props.recipe.id}`)}
-      style={{ margin: 20, padding: 10 }}
-    >
-      <div>{props.recipe.food}</div>
-      <img src={props.recipe.image} alt={"recipe"} width={200} />
-      <div>{props.recipe.instructions}</div>
-      <div>{props.recipe.id}</div>
+    <Card onClick={() => something(recipe)} style={{ margin: 20, padding: 10 }}>
+      <div>{recipe.food}</div>
+      <img src={recipe.image} alt={"recipe"} width={200} />
+      <div>{recipe.instructions}</div>
+      <div>{recipe.id}</div>
     </Card>
   );
 };

@@ -1,9 +1,8 @@
 import React from "react";
 import Recipes from "../components/Recipes";
 
-const RecipesPage = props => {
-  console.log("recipespage", props);
-  return <Recipes props={props} />;
+const RecipesPage = ({ children }) => {
+  return <Recipes children={children} />;
 };
 
 export default RecipesPage;
